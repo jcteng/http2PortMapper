@@ -1,0 +1,11 @@
+{
+  "name": "http2tcptunel",
+  "version": "1.0.0",
+  "description": "小工具，map tcp端口到本地，使用http2作为传输界面",
+  "main": "local.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
