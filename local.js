@@ -14,7 +14,7 @@ let tcpPortMapper = net.createServer(async (stream)=>{
         const upstream = h2c.request({ ':path': '/'+targetURL },{endStream:false})        
         stream.pipe(upstream).pipe(stream)
     
-        onError=(err)=>{
+        let onError=(err)=>{
             console.log(err)
             stream.destroy()
             upstream.destroy()

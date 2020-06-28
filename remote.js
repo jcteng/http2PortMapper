@@ -15,7 +15,7 @@ server.on("stream", (stream, header) => {
         console.log("connect>", targetInfo.hostname, targetInfo.port)
 
         stream.pipe(upstream).pipe(stream)
-        onError = (err) => {
+        let onError = (err) => {
             console.log(err)
             stream.destroy()
             upstream.destroy()
