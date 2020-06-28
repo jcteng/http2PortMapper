@@ -22,13 +22,8 @@ server.on("stream", (stream, header) => {
         }
         stream.on("error", onError)
         upstream.on("error", onError)
-        stream.on("close", ()=>{
-            onError("stream close")
-        })
-        upstream.on("close", ()=>{
-            onError("upstream close")
-        })
-       
+        stream.on("close", ()=>onError("stream close"))
+        upstream.on("close", ()=>onError("upstream close"))
     }
 }).listen(1443, "0.0.0.0", () => {
     console.log("server listen on ", server.address())
