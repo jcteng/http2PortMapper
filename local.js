@@ -1,5 +1,4 @@
 const net = require("net")
-const { pipeline } = require('stream');
 const http2 = require("http2")
 
 const remoteURL = "http://127.0.0.1:1443"
@@ -22,8 +21,9 @@ let tcpPortMapper = net.createServer(async (stream)=>{
         }
         stream.on("error",onError)
         upstream.on("error",onError)
-        stream.on("close", ()=>console.log("stream close"))
-        upstream.on("close", ()=>console.log("upstream close"))
+        stream.on("close", ()=>onError("stream close"))
+        upstream.on("close", ()=>onError("upstream close"))
+       
 
     })    
     

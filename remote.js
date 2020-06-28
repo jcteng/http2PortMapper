@@ -1,11 +1,10 @@
 const http2 = require('http2');
 const net = require("net")
 const url = require('url');
-const { pipeline } = require('stream');
 
 const server = http2.createServer()
 
-server.on("error", console.error)
+server.on("error", (e)=>console.error("server error",e))
 
 
 server.on("stream", (stream, header) => {
@@ -31,10 +30,7 @@ server.on("stream", (stream, header) => {
         })
        
     }
-})
-
-
-server.listen(1443, "0.0.0.0", () => {
+}).listen(1443, "0.0.0.0", () => {
     console.log("server listen on ", server.address())
 
 })
